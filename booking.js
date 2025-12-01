@@ -9,6 +9,25 @@ let currentMonth = new Date(2025, 10, 1); // November 2025
 document.addEventListener('DOMContentLoaded', function() {
     updateDateDisplay();
     generateCalendar();
+    
+    // Check for facility parameter in URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const facilityParam = urlParams.get('facility');
+    
+    if (facilityParam) {
+        // Map facility names from URL to booking page facility names
+        const facilityMap = {
+            'swimming': 'basketball',  // Note: Will be fixed later
+            'tennis': 'tennis',
+            'cricket': 'cricket',
+            'gym': 'gym'
+        };
+        
+        const mappedFacility = facilityMap[facilityParam];
+        if (mappedFacility) {
+            selectFacility(mappedFacility);
+        }
+    }
 });
 
 // Facility Selection
