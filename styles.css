@@ -1149,6 +1149,132 @@ body {
     box-shadow: 0 8px 16px rgba(16, 185, 129, 0.3);
 }
 
+/* Booking Details Modal Styles */
+.booking-details-content {
+    padding: 8px 0;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.detail-row:last-child {
+    border-bottom: none;
+}
+
+.detail-label {
+    font-weight: 600;
+    color: #6b7280;
+    font-size: 16px;
+}
+
+.detail-value {
+    font-weight: 600;
+    color: #0a192f;
+    font-size: 16px;
+}
+
+.status-confirmed {
+    color: var(--accent-green);
+    background: rgba(16, 185, 129, 0.1);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+/* All Bookings Modal Styles */
+.all-bookings-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-height: 500px;
+    overflow-y: auto;
+    padding: 8px 0;
+}
+
+.booking-card-modal {
+    background: #f9fafb;
+    border-radius: 16px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.booking-card-modal:hover {
+    border-color: var(--accent-green);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.1);
+}
+
+.booking-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.booking-card-header h4 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0a192f;
+    margin: 0;
+}
+
+.status-badge {
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.status-upcoming {
+    color: #8b5cf6;
+    background: rgba(139, 92, 246, 0.1);
+}
+
+.booking-card-details {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.booking-detail-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #6b7280;
+    font-size: 15px;
+}
+
+.detail-icon {
+    font-size: 18px;
+    width: 24px;
+    display: inline-block;
+}
+
+/* Scrollbar styling for all bookings */
+.all-bookings-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.all-bookings-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.all-bookings-content::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 10px;
+}
+
+.all-bookings-content::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
 /* Responsive Design for Booking Page */
 @media (max-width: 1024px) {
     .time-slots-grid {

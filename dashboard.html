@@ -294,6 +294,37 @@
                 closeChallenge();
             }
         });
+
+        // Booking Details Modal
+        document.querySelector('.view-details-btn').addEventListener('click', function() {
+            document.getElementById('bookingDetailsModal').classList.add('active');
+        });
+
+        function closeBookingDetails() {
+            document.getElementById('bookingDetailsModal').classList.remove('active');
+        }
+
+        document.getElementById('bookingDetailsModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeBookingDetails();
+            }
+        });
+
+        // All Bookings Modal
+        document.querySelector('.view-all').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('allBookingsModal').classList.add('active');
+        });
+
+        function closeAllBookings() {
+            document.getElementById('allBookingsModal').classList.remove('active');
+        }
+
+        document.getElementById('allBookingsModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeAllBookings();
+            }
+        });
     </script>
 </body>
 </html>
