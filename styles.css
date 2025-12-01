@@ -1275,6 +1275,65 @@ body {
     background: #9ca3af;
 }
 
+/* Event Details Modal Styles */
+.event-details-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 8px 0;
+}
+
+.event-detail-section {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px;
+    background: #f9fafb;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.event-detail-section:hover {
+    background: #f3f4f6;
+    transform: translateX(4px);
+}
+
+.event-detail-icon {
+    font-size: 28px;
+    min-width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.event-detail-text {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+}
+
+.event-detail-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.event-detail-value {
+    font-size: 16px;
+    font-weight: 500;
+    color: #0a192f;
+    line-height: 1.5;
+}
+
+.event-modal-actions {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+}
+
 /* Responsive Design for Booking Page */
 @media (max-width: 1024px) {
     .time-slots-grid {

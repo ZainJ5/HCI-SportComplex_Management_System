@@ -2,22 +2,75 @@
 
 // View Event Details
 function viewEventDetails(eventId) {
-    // You can redirect to a detailed event page or show a modal
     console.log('Viewing event:', eventId);
     
-    // Example: Redirect to event detail page
-    // window.location.href = `event-details.html?id=${eventId}`;
-    
-    // Example: Show alert (replace with proper modal later)
-    const eventNames = {
-        'giki-nust-swimming': 'GIKI vs NUST Swimming Competition - November 25',
-        'faculty-cricket': 'Faculty Cricket Cup - December 01',
-        'gss-tennis': 'GSS Tennis Cup - December 15',
-        'giki-lums-volleyball': 'GIKI vs LUMS Volleyball Competition - December 18'
+    // Event details data
+    const eventDetails = {
+        'giki-nust-swimming': {
+            title: 'GIKI vs NUST Swimming Competition',
+            date: 'November 25, 2025',
+            time: '2:00 PM - 5:00 PM',
+            venue: 'GIKI Swimming Pool',
+            description: 'An exciting competition between GIKI and NUST swimming teams. All students are welcome to attend and cheer for their teams!',
+            registration: 'Open for participants until Nov 20'
+        },
+        'faculty-cricket': {
+            title: 'Faculty Cricket Cup',
+            date: 'December 01, 2025',
+            time: '3:00 PM - 7:00 PM',
+            venue: 'GIKI Cricket Ground',
+            description: 'Annual faculty cricket tournament featuring teams from all departments. Come support your favorite faculty!',
+            registration: 'Faculty members only'
+        },
+        'gss-tennis': {
+            title: 'GSS Tennis Cup',
+            date: 'December 15, 2025',
+            time: '10:00 AM - 6:00 PM',
+            venue: 'GIKI Tennis Courts',
+            description: 'GSS annual tennis championship. Singles and doubles categories available. Prizes for winners!',
+            registration: 'Open until Dec 10'
+        },
+        'giki-lums-volleyball': {
+            title: 'GIKI vs LUMS Volleyball Competition',
+            date: 'December 18, 2025',
+            time: '4:00 PM - 7:00 PM',
+            venue: 'GIKI Sports Complex',
+            description: 'Inter-university volleyball match between GIKI and LUMS. An intense competition showcasing athletic excellence!',
+            registration: 'Team registration closed'
+        }
     };
     
-    alert(`Event Details:\n${eventNames[eventId]}\n\nMore details coming soon! `);
+    const event = eventDetails[eventId];
+    if (event) {
+        // Update modal content
+        document.getElementById('eventModalTitle').textContent = event.title;
+        document.getElementById('eventDate').textContent = event.date;
+        document.getElementById('eventTime').textContent = event.time;
+        document.getElementById('eventVenue').textContent = event.venue;
+        document.getElementById('eventDescription').textContent = event.description;
+        document.getElementById('eventRegistration').textContent = event.registration;
+        
+        // Show modal
+        document.getElementById('eventDetailsModal').classList.add('active');
+    }
 }
+
+// Close Event Details Modal
+function closeEventDetails() {
+    document.getElementById('eventDetailsModal').classList.remove('active');
+}
+
+// Close modal when clicking outside
+document.addEventListener('DOMContentLoaded', function() {
+    const eventModal = document.getElementById('eventDetailsModal');
+    if (eventModal) {
+        eventModal.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeEventDetails();
+            }
+        });
+    }
+});
 
 // Add scroll animation for events
 document.addEventListener('DOMContentLoaded', function() {

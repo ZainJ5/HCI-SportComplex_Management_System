@@ -89,6 +89,56 @@
         </div>
     </main>
 
+    <!-- Event Details Modal -->
+    <div class="modal-overlay" id="eventDetailsModal">
+        <div class="calendar-modal" style="max-width: 600px;">
+            <div class="calendar-header">
+                <h3 id="eventModalTitle">Event Details</h3>
+                <button class="calendar-close-btn" onclick="closeEventDetails()" aria-label="Close">×</button>
+            </div>
+            <div class="event-details-content">
+                <div class="event-detail-section">
+                    <div class="event-detail-icon">📅</div>
+                    <div class="event-detail-text">
+                        <span class="event-detail-label">Date</span>
+                        <span class="event-detail-value" id="eventDate">November 25, 2025</span>
+                    </div>
+                </div>
+                <div class="event-detail-section">
+                    <div class="event-detail-icon">🕐</div>
+                    <div class="event-detail-text">
+                        <span class="event-detail-label">Time</span>
+                        <span class="event-detail-value" id="eventTime">2:00 PM - 5:00 PM</span>
+                    </div>
+                </div>
+                <div class="event-detail-section">
+                    <div class="event-detail-icon">📍</div>
+                    <div class="event-detail-text">
+                        <span class="event-detail-label">Venue</span>
+                        <span class="event-detail-value" id="eventVenue">GIKI Sports Complex</span>
+                    </div>
+                </div>
+                <div class="event-detail-section">
+                    <div class="event-detail-icon">ℹ️</div>
+                    <div class="event-detail-text">
+                        <span class="event-detail-label">Description</span>
+                        <span class="event-detail-value" id="eventDescription">An exciting competition between GIKI and NUST swimming teams. All students are welcome to attend and cheer for their teams!</span>
+                    </div>
+                </div>
+                <div class="event-detail-section">
+                    <div class="event-detail-icon">🎫</div>
+                    <div class="event-detail-text">
+                        <span class="event-detail-label">Registration</span>
+                        <span class="event-detail-value" id="eventRegistration">Open for participants</span>
+                    </div>
+                </div>
+            </div>
+            <div class="event-modal-actions">
+                <button class="thanks-btn" onclick="closeEventDetails()">Got It</button>
+            </div>
+        </div>
+    </div>
+
     <script src="dark-mode.js"></script>
     <script src="events.js"></script>
 </body>
