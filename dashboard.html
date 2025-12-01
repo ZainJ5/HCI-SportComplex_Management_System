@@ -152,6 +152,148 @@
         </section>
     </main>
 
+    <!-- Challenge Sent Modal -->
+    <div class="modal-overlay" id="challengeModal">
+        <div class="success-modal">
+            <div class="success-icon">🏆</div>
+            <h3 class="success-message">Challenge Sent!</h3>
+            <p style="color: #6b7280; margin-bottom: 32px; font-size: 18px;">Your friend has been challenged. Good luck!</p>
+            <button class="thanks-btn" onclick="closeChallenge()">Got It</button>
+        </div>
+    </div>
+
+    <!-- Booking Details Modal -->
+    <div class="modal-overlay" id="bookingDetailsModal">
+        <div class="calendar-modal">
+            <div class="calendar-header">
+                <h3>Booking Details</h3>
+                <button class="calendar-close-btn" onclick="closeBookingDetails()" aria-label="Close">×</button>
+            </div>
+            <div class="booking-details-content">
+                <div class="detail-row">
+                    <span class="detail-label">Facility:</span>
+                    <span class="detail-value">Swimming Pool</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Date:</span>
+                    <span class="detail-value">Today, 14/11/25</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Time:</span>
+                    <span class="detail-value">10:00 PM</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Status:</span>
+                    <span class="detail-value status-confirmed">Confirmed</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Booking ID:</span>
+                    <span class="detail-value">#BK2025001</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- All Bookings Modal -->
+    <div class="modal-overlay" id="allBookingsModal">
+        <div class="calendar-modal" style="max-width: 650px;">
+            <div class="calendar-header">
+                <h3>All Bookings</h3>
+                <button class="calendar-close-btn" onclick="closeAllBookings()" aria-label="Close">×</button>
+            </div>
+            <div class="all-bookings-content">
+                <div class="booking-card-modal">
+                    <div class="booking-card-header">
+                        <h4>Swimming Pool</h4>
+                        <span class="status-badge status-confirmed">Confirmed</span>
+                    </div>
+                    <div class="booking-card-details">
+                        <div class="booking-detail-item">
+                            <span class="detail-icon">📅</span>
+                            <span>Today, 14/11/25</span>
+                        </div>
+                        <div class="booking-detail-item">
+                            <span class="detail-icon">🕐</span>
+                            <span>10:00 PM</span>
+                        </div>
+                        <div class="booking-detail-item">
+                            <span class="detail-icon">#</span>
+                            <span>BK2025001</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="booking-card-modal">
+                    <div class="booking-card-header">
+                        <h4>Tennis Court</h4>
+                        <span class="status-badge status-upcoming">Upcoming</span>
+                    </div>
+                    <div class="booking-card-details">
+                        <div class="booking-detail-item">
+                            <span class="detail-icon">📅</span>
+                            <span>Tomorrow, 15/11/25</span>
+                        </div>
+                        <div class="booking-detail-item">
+                            <span class="detail-icon">🕐</span>
+                            <span>4:00 PM - 5:00 PM</span>
+                        </div>
+                        <div class="booking-detail-item">
+                            <span class="detail-icon">#</span>
+                            <span>BK2025002</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="booking-card-modal">
+                    <div class="booking-card-header">
+                        <h4>Gym</h4>
+                        <span class="status-badge status-upcoming">Upcoming</span>
+                    </div>
+                    <div class="booking-card-details">
+                        <div class="booking-detail-item">
+                            <span class="detail-icon">📅</span>
+                            <span>16/11/25</span>
+                        </div>
+                        <div class="booking-detail-item">
+                            <span class="detail-icon">🕐</span>
+                            <span>6:00 AM - 7:00 AM</span>
+                        </div>
+                        <div class="booking-detail-item">
+                            <span class="detail-icon">#</span>
+                            <span>BK2025003</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="dark-mode.js"></script>
+    <script>
+        // Challenge button functionality
+        document.querySelectorAll('.challenge-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const friendName = this.parentElement.querySelector('.friend-name').textContent;
+                showChallengeModal(friendName);
+            });
+        });
+
+        function showChallengeModal(friendName) {
+            const modal = document.getElementById('challengeModal');
+            modal.classList.add('active');
+        }
+
+        function closeChallenge() {
+            const modal = document.getElementById('challengeModal');
+            modal.classList.remove('active');
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('challengeModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeChallenge();
+            }
+        });
+    </script>
 </body>
 </html>
