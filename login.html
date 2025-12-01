@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIKI Sports Complex - Login</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body class="login-page">
+    <div class="login-container">
+        <div class="logo-section">
+            <div class="logo-box">
+                <img src="./img/logo.png" alt="GIKI Sports Complex Logo" class="logo-img">
+            </div>  
+        </div>
+        
+        <div class="form-section">
+            <form class="login-form" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="username@gmail.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Password" required>
+                </div>
+                
+                <a href="#" class="forgot-password">Forgot Password?</a>
+                
+                <button type="submit" class="login-btn">Log in</button>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        function handleLogin(e) {
+            e.preventDefault();
+            window.location.href = 'dashboard.html';
+        }
+    </script>
+</body>
+</html>

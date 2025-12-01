@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIKI Sports Complex - Booking</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="img\log2.png" alt="GIKI Logo">
+            </div>
+
+            <ul class="nav-menu">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="facilities.html">Facilities</a></li>
+                <li><a href="booking.html" class="active">Booking</a></li>
+                <li><a href="events.html">Events</a></li>
+            </ul>
+
+            <div class="nav-icons">
+                <button class="dark-mode-toggle" onclick="toggleDarkMode()" aria-label="Toggle Dark Mode">
+                    <span class="moon-icon">🌙</span>
+                </button>
+                <div class="user-avatar">
+                    <img src="img\icon.png" alt="User Avatar">
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content booking-page">
+        <h1 class="booking-title">Book Your Facility</h1>
+
+        <!-- Facility Selection -->
+        <div class="facility-selector">
+            <button class="scroll-btn scroll-left" onclick="scrollFacilities(-1)" aria-label="Scroll Left">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+
+            <div class="facilities-scroll-container" id="facilitiesContainer">
+                <div class="facility-option" data-facility="cricket" onclick="selectFacility('cricket')">
+                    <div class="facility-icon">
+                        <img src="img/cricket.png" alt="Cricket" />
+                    </div>
+                    <span class="facility-name">Cricket</span>
+                </div>
+                <div class="facility-option" data-facility="badminton" onclick="selectFacility('badminton')">
+                    <div class="facility-icon">
+                        <img src="img/shuttlecock.png" alt="Badminton" />
+                    </div>
+                    <span class="facility-name">Badminton</span>
+                </div>
+                <div class="facility-option" data-facility="tennis" onclick="selectFacility('tennis')">
+                    <div class="facility-icon">
+                        <img src="img/tennis-racket.png" alt="Tennis" />
+                    </div>
+                    <span class="facility-name">Tennis</span>
+                </div>
+                <div class="facility-option" data-facility="gym" onclick="selectFacility('gym')">
+                    <div class="facility-icon">
+                        <img src="img/weight.png" alt="Gym" />
+                    </div>
+                    <span class="facility-name">Gym</span>
+                </div>
+                <div class="facility-option" data-facility="basketball" onclick="selectFacility('basketball')">
+                    <div class="facility-icon">
+                        <img src="img/basketball.png" alt="Basketball" />
+                    </div>
+                    <span class="facility-name">Basketball</span>
+                </div>
+            </div>
+
+
+            <button class="scroll-btn scroll-right" onclick="scrollFacilities(1)" aria-label="Scroll Right">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Date Selection -->
+        <div class="booking-section">
+            <h2 class="section-label">Select Day:</h2>
+            <div class="date-selector" onclick="openCalendar()">
+                <span id="selectedDate">November 23 2025</span>
+                <button class="calendar-toggle-btn" aria-label="Open Calendar">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Time Slot Selection -->
+        <div class="booking-section">
+            <h2 class="section-label">Select Slot:</h2>
+            <div class="time-slots-grid">
+                <button class="time-slot" onclick="selectTimeSlot(this)" data-slot="9:00-11:00 am">9:00-11:00
+                    am</button>
+                <button class="time-slot" onclick="selectTimeSlot(this)" data-slot="11:00-12:00 am">11:00-12:00
+                    am</button>
+                <button class="time-slot" onclick="selectTimeSlot(this)" data-slot="1:00-2:00 pm">1:00-2:00 pm</button>
+                <button class="time-slot" onclick="selectTimeSlot(this)" data-slot="2:00-3:00 pm">2:00-3:00 pm</button>
+                <button class="time-slot" onclick="selectTimeSlot(this)" data-slot="3:00-4:00 pm">3:00-4:00 pm</button>
+                <button class="time-slot" onclick="selectTimeSlot(this)" data-slot="4:00-5:00 pm">4:00-5:00 pm</button>
+                <button class="time-slot" onclick="selectTimeSlot(this)" data-slot="6:00-7:00 pm">6:00-7:00 pm</button>
+                <button class="time-slot" onclick="selectTimeSlot(this)" data-slot="6:00-8:00 pm">6:00-8:00 pm</button>
+            </div>
+        </div>
+
+        <!-- Book Now Button -->
+        <div class="booking-action">
+            <button class="book-now-btn" onclick="bookFacility()">Book Now</button>
+        </div>
+    </main>
+
+    <!-- Calendar Modal -->
+    <div class="modal-overlay" id="calendarModal" onclick="closeCalendar(event)">
+        <div class="calendar-modal" onclick="event.stopPropagation()">
+            <div class="calendar-header">
+                <button class="calendar-nav-btn" onclick="changeMonth(-1)" aria-label="Previous Month">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </button>
+                <h3 id="calendarMonth">November 2025</h3>
+                <button class="calendar-nav-btn" onclick="changeMonth(1)" aria-label="Next Month">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+                <button class="calendar-close-btn" onclick="closeCalendar()" aria-label="Close">×</button>
+            </div>
+            <div class="calendar-weekdays">
+                <div>Mon</div>
+                <div>Tue</div>
+                <div>Wed</div>
+                <div>Thu</div>
+                <div>Fri</div>
+                <div>Sat</div>
+                <div>Sun</div>
+            </div>
+            <div class="calendar-days" id="calendarDays"></div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="successModal" onclick="closeSuccessModal(event)">
+        <div class="success-modal" onclick="event.stopPropagation()">
+            <div class="success-icon">🎉</div>
+            <h2 class="success-message">Your court has been booked! </h2>
+            <button class="thanks-btn" onclick="closeSuccessModal()">Thanks!</button>
+        </div>
+    </div>
+
+    <script src="dark-mode.js"></script>
+    <script src="booking.js"></script>
+</body>
+
+</html>

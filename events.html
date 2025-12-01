@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIKI Sports Complex - Events</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="img\log2.png" alt="GIKI Logo">
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="facilities.html">Facilities</a></li>
+                <li><a href="booking.html">Booking</a></li>
+                <li><a href="events.html" class="active">Events</a></li>
+            </ul>
+            
+            <div class="nav-icons">
+                <button class="dark-mode-toggle" onclick="toggleDarkMode()" aria-label="Toggle Dark Mode">
+                    <span class="moon-icon">🌙</span>
+                </button>
+                <div class="user-avatar">
+                    <img src="img/icon.png" alt="User Avatar">
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content events-page">
+        <h1 class="events-title">Upcoming Events</h1>
+        
+        <div class="events-list">
+            <div class="event-item" onclick="viewEventDetails('giki-nust-swimming')">
+                <div class="event-date">
+                    <div class="date-day">25</div>
+                    <div class="date-month">NOV</div>
+                </div>
+                <h2 class="event-name">GIKI vs NUST Swimming Competition</h2>
+                <button class="event-arrow" aria-label="View Event Details">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="event-item" onclick="viewEventDetails('faculty-cricket')">
+                <div class="event-date">
+                    <div class="date-day">01</div>
+                    <div class="date-month">DEC</div>
+                </div>
+                <h2 class="event-name">Faculty Cricket Cup</h2>
+                <button class="event-arrow" aria-label="View Event Details">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="event-item" onclick="viewEventDetails('gss-tennis')">
+                <div class="event-date">
+                    <div class="date-day">15</div>
+                    <div class="date-month">DEC</div>
+                </div>
+                <h2 class="event-name">GSS Tennis Cup</h2>
+                <button class="event-arrow" aria-label="View Event Details">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="event-item" onclick="viewEventDetails('giki-lums-volleyball')">
+                <div class="event-date">
+                    <div class="date-day">18</div>
+                    <div class="date-month">DEC</div>
+                </div>
+                <h2 class="event-name">GIKI vs LUMS Volleyball Competition</h2>
+                <button class="event-arrow" aria-label="View Event Details">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script src="dark-mode.js"></script>
+    <script src="events.js"></script>
+</body>
+</html>

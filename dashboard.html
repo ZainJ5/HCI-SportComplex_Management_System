@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIKI Sports Complex - Dashboard</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="./img/log2.png" alt="GIKI Logo">
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                <li><a href="facilities.html">Facilities</a></li>
+                <li><a href="booking.html">Booking</a></li>
+                <li><a href="events.html">Events</a></li>
+            </ul>
+            
+            <div class="nav-icons">
+                <button class="dark-mode-toggle" onclick="toggleDarkMode()" aria-label="Toggle Dark Mode">
+                    <span class="moon-icon">🌙</span>
+                </button>
+                <div class="user-avatar">
+                    <img src="./img/icon.png" alt="User Avatar">
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="booking-highlight">
+            <div class="calendar-icon">
+                <div class="calendar-top"></div>
+                <div class="calendar-date">01</div>
+            </div>
+            <div class="booking-info">
+                <h1>Your Next Booking Swimming Pool</h1>
+                <p class="booking-time">Today 14/11/25 <span class="time">10:00pm</span></p>
+            </div>
+            <div class="booking-actions">
+                <a href="#" class="view-all">View all</a>
+                <button class="view-details-btn">View Details</button>
+            </div>
+        </section>
+
+        <div class="dashboard-grid">
+            <section class="daily-goals-card">
+                <h2>Daily Goals</h2>
+                <div class="chart-container">
+                    <svg class="donut-chart" viewBox="0 0 200 200">
+                        <circle cx="100" cy="100" r="80" fill="none" stroke="#e5e7eb" stroke-width="30"/>
+                        <circle cx="100" cy="100" r="80" fill="none" stroke="#10b981" stroke-width="30" 
+                                stroke-dasharray="251.2 251.2" stroke-dashoffset="62.8" 
+                                transform="rotate(-90 100 100)" class="progress-circle"/>
+                        <circle cx="100" cy="100" r="80" fill="none" stroke="#d1d5db" stroke-width="30" 
+                                stroke-dasharray="62.8 439.6" stroke-dashoffset="-188.4" 
+                                transform="rotate(-90 100 100)"/>
+                        <circle cx="100" cy="100" r="80" fill="none" stroke="#8b5cf6" stroke-width="30" 
+                                stroke-dasharray="50.24 451.16" stroke-dashoffset="-251.2" 
+                                transform="rotate(-90 100 100)"/>
+                        <circle cx="100" cy="100" r="80" fill="none" stroke="#c7d2fe" stroke-width="30" 
+                                stroke-dasharray="31.4 469.8" stroke-dashoffset="-301.44" 
+                                transform="rotate(-90 100 100)"/>
+                    </svg>
+                    <div class="chart-labels">
+                        <div class="label" style="top: 15%; left: 65%;">
+                            <span class="label-text">Gym<br>20 mins</span>
+                        </div>
+                        <div class="label" style="top: 45%; right: 5%;">
+                            <span class="label-text">Running<br>--</span>
+                        </div>
+                        <div class="label" style="bottom: 15%; right: 15%;">
+                            <span class="label-text">Warm-Up<br>10 mins</span>
+                        </div>
+                        <div class="label" style="bottom: 20%; left: 10%;">
+                            <span class="label-text">Badminton<br>40 mins</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="challenges-card">
+                <h2>Challenges</h2>
+                <div class="challenges-list">
+                    <div class="challenge-item">
+                        <span class="friend-name">Friend 1</span>
+                        <button class="challenge-btn">Challenge</button>
+                    </div>
+                    <div class="challenge-item">
+                        <span class="friend-name">Friend 2</span>
+                        <button class="challenge-btn">Challenge</button>
+                    </div>
+                    <div class="challenge-item">
+                        <span class="friend-name">Friend 3</span>
+                        <button class="challenge-btn">Challenge</button>
+                    </div>
+                    <div class="challenge-item">
+                        <span class="friend-name">Friend 4</span>
+                        <button class="challenge-btn">Challenge</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <section class="leaderboard-card">
+            <h2>Leader Board</h2>
+            <div class="leaderboard-list">
+                <div class="leaderboard-item">
+                    <img src="img\profile.png" alt="Student 1" class="leader-avatar">
+                    <div class="leader-info">
+                        <span class="leader-name">Student 1</span>
+                        <div class="leader-stars">
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                        </div>
+                    </div>
+                    <span class="leader-points">2980 points</span>
+                </div>
+                <div class="leaderboard-item">
+                    <img src="img\profile.png" alt="Student 2" class="leader-avatar">
+                    <div class="leader-info">
+                        <span class="leader-name">Student 2</span>
+                        <div class="leader-stars">
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                        </div>
+                    </div>
+                    <span class="leader-points">2850 points</span>
+                </div>
+                <div class="leaderboard-item">
+                    <img src="img\profile.png" alt="Student 3" class="leader-avatar">
+                    <div class="leader-info">
+                        <span class="leader-name">Student 3</span>
+                        <div class="leader-stars">
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                        </div>
+                    </div>
+                    <span class="leader-points">2820 points</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="dark-mode.js"></script>
+</body>
+</html>

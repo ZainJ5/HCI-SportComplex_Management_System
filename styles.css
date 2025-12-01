@@ -1,0 +1,1432 @@
+/* CSS Variables for Dark Mode */
+@font-face {
+  font-family: "Prociono";
+  src: url("./fonts/Prociono-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "impact";
+  src: url("./fonts/impact.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+:root {
+    --bg-primary: #f3f4f6;
+    --bg-secondary: #ffffff;
+    --bg-card: #00111e;
+    --bg-card-secondary: #1e293b;
+    --text-primary: #0a192f;
+    --text-secondary: #ffffff;
+    --text-muted: #4D4D4D;
+    --border-color: #e5e7eb;
+    --accent-green: #10b981;
+    --accent-red: #ef4444;
+    --hover-overlay: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] {
+    --bg-primary: #00111e;
+    --bg-secondary: #1e293b;
+    --bg-card: black;
+    --bg-card-secondary: #0f172a;
+    --text-primary: #ffffff;
+    --text-secondary: #ffffff;
+    --text-muted: #d9d9d9;
+    --border-color: #334155;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    min-height: 100vh;
+}
+
+/* Login Page Styles */
+.login-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #0a192f 0%, #1e3a5f 100%);
+    padding: 20px;
+}
+
+.login-container {
+    background: linear-gradient(135deg, #0a192f 0%, #00111e 100%);
+    border-radius: 24px;
+    padding: 60px;
+    display: flex;
+    gap: 80px;
+    align-items: center;
+    max-width: 1000px;
+    width: 100%;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.logo-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.logo-box {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+   box-shadow: 5.42px 5.42px 4.34px rgba(255, 255, 255, 0.5);
+
+}
+
+.logo-img {
+    width: 150px;
+    height: auto;
+    display: block;
+    box-shadow: 5.42px 5.42px 4.34px rgba(255, 255, 255, 0.5);
+
+}
+
+.form-section {
+    flex: 1;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.form-group input {
+    padding: 16px 20px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0. 95);
+    color: #1e293b;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.3);
+}
+
+.form-group input::placeholder {
+    color: #94a3b8;
+}
+
+.forgot-password {
+    color: var(--accent-red);
+    text-decoration: none;
+    font-size: 14px;
+    align-self: flex-end;
+    margin-top: -8px;
+    transition: opacity 0.3s ease;
+}
+
+.forgot-password:hover {
+    opacity: 0. 8;
+}
+
+.login-btn {
+    background: var(--accent-green);
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 8px;
+}
+
+.login-btn:hover {
+    background: #059669;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+}
+
+/* Navigation Styles */
+.navbar {
+    background-color: black;
+    padding: 16px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0. 1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 3px 2px 4px #D9D9D9;
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 48px;
+}
+
+.nav-menu a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    padding: 8px 0;
+    position: relative;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: var(--accent-green);
+}
+
+.nav-menu a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--accent-green);
+}
+
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.dark-mode-toggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 28px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.dark-mode-toggle:hover {
+    transform: scale(1.1);
+}
+
+.user-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--accent-green);
+}
+
+.user-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Main Content */
+.main-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    margin-bottom: 0px;
+    padding: 22px 24px;
+    padding-bottom: 0px;
+}
+
+.page-title {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 32px;
+    color: var(--text-primary);
+}
+
+/* Booking Highlight */
+.booking-highlight {
+    background: url('./img/ban.png') center/cover;
+    border-radius: 20px;
+    padding: 32px 40px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    margin-bottom: 32px;
+    border: 3px solid white; 
+ 
+    
+    
+}
+
+.calendar-icon {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    border-radius: 12px;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 8px 16px rgba(59, 130, 246, 0.3);
+}
+
+.calendar-top {
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 12px;
+}
+
+.calendar-top::before,
+.calendar-top::after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+}
+
+.calendar-date {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 42px;
+    font-weight: 800;
+    color: white;
+}
+
+.booking-info {
+    flex: 1;
+}
+
+.booking-info h1 {
+    color: white;
+    font-size: 32px;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.booking-time {
+    color: white;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.booking-time .time {
+    margin-left: 16px;
+}
+
+.booking-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-end;
+}
+
+.view-all {
+    color: white;
+    text-decoration: underline;
+    font-size: 16px;
+    transition: opacity 0.3s ease;
+}
+
+.view-all:hover {
+    opacity: 0.8;
+}
+
+.view-details-btn {
+    background: var(--accent-green);
+    color: white;
+    border: none;
+    padding: 12px 32px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.view-details-btn:hover {
+    background: #059669;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(16, 185, 129, 0.3);
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+/* Cards */
+.daily-goals-card,
+.challenges-card,
+.leaderboard-card {
+    background: var(--bg-card);
+    border-radius: 20px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    padding: 15px;
+   box-shadow: 3px 2px 4px #D9D9D9;
+}
+
+.daily-goals-card,
+.challenges-card {
+        border-radius: 20px;
+        box-shadow: 3px 2px 4px #D9D9D9;
+
+}
+
+.daily-goals-card h2,
+.challenges-card h2,
+.leaderboard-card h2 {
+    color: var(--text-secondary);
+    font-size: 24px;
+    margin-bottom: 24px;
+    font-weight: 700;
+    
+}
+
+.leaderboard-card h2{
+    text-align: center;
+}
+
+/* Daily Goals Chart */
+.chart-container {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.donut-chart {
+    width: 100%;
+    height: auto;
+}
+
+.chart-labels {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.label {
+    position: absolute;
+    background: rgba(30, 41, 59, 0.9);
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 11px;
+    color: white;
+    white-space: nowrap;
+}
+
+.label-text {
+    display: block;
+    line-height: 1.4;
+}
+
+/* Challenges */
+.challenges-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.challenge-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.challenge-item:last-child {
+    border-bottom: none;
+}
+
+.friend-name {
+    color: var(--text-secondary);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.challenge-btn {
+    background: var(--accent-green);
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.challenge-btn:hover {
+    background: #059669;
+    transform: translateY(-2px);
+}
+
+/* Leaderboard */
+.leaderboard-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    
+}
+
+.leaderboard-item {
+    background: linear-gradient(90deg, var(--accent-green), rgba(16, 185, 129, 0.7));
+    border-radius: 50px;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: transform 0.3s ease;
+    
+}
+
+.leaderboard-item:hover {
+    transform: translateX(8px);
+}
+
+.leader-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.leader-info {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.leader-name {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    min-width: 100px;
+}
+
+.leader-stars {
+    display: flex;
+    gap: 4px;
+    width: 200px;
+    margin: auto;
+}
+
+.star {
+    font-size: 20px;
+}
+
+.leader-points {
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+/* Facilities Grid */
+.facilities-grid {
+    width: 100%;
+    gap: 24px;
+}
+
+.facility-card {
+    position: relative;
+    border-radius: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    height: 170px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+     border: 2px, #ffffff,solid;
+}
+
+.facility-card:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.facility-card img {
+    box-shadow: inset 8px 7px 66px 21px rgba(0, 0, 0, 0.59);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    z-index: 1;
+   
+}
+
+.facility-title {
+    font-family: impact;
+    position: relative;
+    color: white;
+    padding: 24px;
+    font-size: 50px;
+    font-weight: 100;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    z-index: 3;
+    text-shadow: 2px 2px 4px #000000;
+    
+}
+
+.facility-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    z-index: 2;
+    pointer-events: none;
+    
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .nav-menu {
+        gap: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .login-container {
+        flex-direction: column;
+        padding: 40px 24px;
+        gap: 40px;
+    }
+    
+    .logo-box {
+        padding: 24px;
+    }
+    
+    .logo-img {
+        width: 150px;
+    }
+    
+    .nav-container {
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+    
+    .nav-menu {
+        order: 3;
+        width: 100%;
+        flex-direction: column;
+        gap: 8px;
+        padding-top: 16px;
+        border-top: 1px solid var(--border-color);
+    }
+    
+    .booking-highlight {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .booking-info h1 {
+        font-size: 24px;
+    }
+    
+    .booking-time {
+        font-size: 18px;
+    }
+    
+    .booking-actions {
+        width: 100%;
+        align-items: center;
+    }
+    
+    .facilities-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .leaderboard-item {
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .booking-info h1 {
+        font-size: 20px;
+    }
+    
+    .booking-time {
+        font-size: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+    
+    .booking-time .time {
+        margin-left: 0;
+    }
+    
+    .calendar-icon {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .calendar-date {
+        font-size: 32px;
+    }
+}
+
+
+
+.booking-page {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 32px 24px;
+}
+
+.booking-title {
+    text-align: center;
+    font-size: 32px;
+    color: var(--text-primary);
+    margin-bottom: 40px;
+    letter-spacing: 0.5px;
+}
+
+.facility-selector {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 48px;
+    position: relative;
+}
+
+.facilities-scroll-container {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    flex: 1;
+    padding: 8px;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+}
+
+.facilities-scroll-container::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+.facility-option {
+    background: var(--accent-green);
+    border-radius: 24px;
+    width: 220px; /* fixed width */
+    height: 220px; /* fixed height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* center content vertically */
+    gap: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 3px solid transparent;
+    box-shadow: 0 4.7px 4.7px rgba(0, 0, 0, 0.25);
+    flex-shrink: 0; /* prevents shrinking in flex container */
+    padding: 0; /* remove extra padding to fit fixed size */
+}
+
+
+.facility-option:hover {
+    transform: translateY(-8px);
+}
+
+.facility-option.active {
+    border-color: #0a192f;
+    box-shadow: 0 0 0 4px rgba(10, 25, 47, 0.2);
+}
+
+.facility-icon {
+    font-size: 64px;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.facility-name {
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.scroll-btn {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    color: var(--text-primary);
+}
+
+.scroll-btn:hover {
+    background: var(--accent-green);
+    border-color: var(--accent-green);
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Booking Sections */
+.booking-section {
+    margin-bottom: 40px;
+}
+
+.section-label {
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+}
+
+/* Date Selector */
+.date-selector {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    border-radius: 16px;
+    padding: 20px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.date-selector:hover {
+    border-color: var(--accent-green);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+}
+
+.calendar-toggle-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--text-primary);
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.calendar-toggle-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Time Slots Grid */
+.time-slots-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.time-slot {
+    background: #0a192f;
+    color: white;
+    border: 3px solid transparent;
+    border-radius: 16px;
+    padding: 24px 32px;
+    font-size: 22px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.time-slot:hover {
+    background: #1e3a5f;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(10, 25, 47, 0.3);
+}
+
+.time-slot.active {
+    background: var(--accent-green);
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.2);
+}
+
+[data-theme="dark"] .time-slot {
+    background: #1e293b;
+}
+
+[data-theme="dark"] .time-slot:hover {
+    background: #334155;
+}
+
+[data-theme="dark"] .time-slot.active {
+    background: var(--accent-green);
+    border-color: #ffffff;
+}
+
+/* Book Now Button */
+.booking-action {
+    display: flex;
+    justify-content: center;
+    margin-top: 48px;
+}
+
+.book-now-btn {
+    background: var(--accent-green);
+    color: white;
+    border: none;
+    border-radius: 16px;
+    padding: 20px 80px;
+    font-size: 28px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 16px rgba(16, 185, 129, 0.3);
+}
+
+.book-now-btn:hover {
+    background: #059669;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(16, 185, 129, 0.4);
+}
+
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Calendar Modal */
+.calendar-modal {
+    background: white;
+    border-radius: 24px;
+    padding: 32px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .calendar-modal {
+    transform: scale(1);
+}
+
+.calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    gap: 16px;
+}
+
+.calendar-header h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0a192f;
+    flex: 1;
+    text-align: center;
+}
+
+.calendar-nav-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    color: #0a192f;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.calendar-nav-btn:hover {
+    color: var(--accent-green);
+    transform: scale(1.2);
+}
+
+.calendar-close-btn {
+    background: transparent;
+    border: none;
+    font-size: 32px;
+    cursor: pointer;
+    color: #6b7280;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    line-height: 1;
+}
+
+.calendar-close-btn:hover {
+    color: #ef4444;
+    transform: scale(1.2);
+}
+
+.calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.calendar-weekdays div {
+    text-align: center;
+    font-weight: 600;
+    color: #6b7280;
+    font-size: 14px;
+    padding: 8px 0;
+}
+
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+}
+
+.calendar-day {
+    aspect-ratio: 1;
+    border: none;
+    background: transparent;
+    border-radius: 50%;
+    font-size: 16px;
+    font-weight: 500;
+    color: #0a192f;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calendar-day:hover:not(:disabled) {
+    background: #e5e7eb;
+}
+
+.calendar-day.selected {
+    background: var(--accent-green);
+    color: white;
+    font-weight: 700;
+}
+
+.calendar-day.other-month {
+    color: #d1d5db;
+}
+
+.calendar-day:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+/* Success Modal */
+.success-modal {
+    background: white;
+    border-radius: 24px;
+    padding: 48px;
+    max-width: 450px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0. 3);
+    transform: scale(0.9);
+    transition: transform 0. 3s ease;
+}
+
+.modal-overlay.active .success-modal {
+    transform: scale(1);
+}
+
+.success-icon {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 24px;
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 64px;
+    box-shadow: 0 8px 16px rgba(254, 243, 199, 0.5);
+}
+
+.success-message {
+    font-size: 28px;
+    font-weight: 600;
+    color: #0a192f;
+    margin-bottom: 32px;
+    line-height: 1.4;
+}
+
+.thanks-btn {
+    background: var(--accent-green);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 16px 64px;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.thanks-btn:hover {
+    background: #059669;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(16, 185, 129, 0.3);
+}
+
+/* Responsive Design for Booking Page */
+@media (max-width: 1024px) {
+    .time-slots-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .booking-title {
+        font-size: 32px;
+    }
+    
+    .facility-selector {
+        flex-direction: column;
+    }
+    
+    .scroll-btn {
+        display: none;
+    }
+    
+    .facilities-scroll-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .facility-option {
+        min-width: 160px;
+        padding: 32px;
+    }
+    
+    .facility-icon {
+        font-size: 48px;
+    }
+    
+    .facility-name {
+        font-size: 16px;
+    }
+    
+    .section-label {
+        font-size: 24px;
+    }
+    
+    .date-selector {
+        font-size: 20px;
+        padding: 16px 24px;
+    }
+    
+    .time-slots-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+    
+    .time-slot {
+        padding: 16px 20px;
+        font-size: 16px;
+    }
+    
+    .book-now-btn {
+        padding: 16px 48px;
+        font-size: 22px;
+    }
+    
+    .calendar-modal,
+    .success-modal {
+        width: 95%;
+        padding: 24px;
+    }
+    
+    .success-icon {
+        width: 100px;
+        height: 100px;
+        font-size: 52px;
+    }
+    
+    .success-message {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    .time-slots-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .calendar-days {
+        gap: 4px;
+    }
+    
+    .calendar-day {
+        font-size: 14px;
+    }
+}
+
+.events-page {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 32px 24px;
+}
+
+.events-title {
+    text-align: center;
+    font-size: 42px;
+    color: var(--text-primary);
+    margin-bottom: 48px;
+    letter-spacing: 0.5px;
+}
+
+.events-list {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.event-item {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 32px 40px;
+    border-bottom: 2px solid var(--border-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.event-item:hover {
+    background: var(--bg-secondary);
+    padding-left: 60px;
+}
+
+.event-item:hover .event-arrow {
+    transform: translateX(8px);
+    color: var(--accent-green);
+}
+
+.event-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-left: 5px solid var(--accent-green);
+    padding-left: 24px;
+    min-width: 100px;
+    flex-shrink: 0;
+}
+
+.date-day {
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--text-primary);
+    letter-spacing: -2px;
+}
+
+.date-month {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--text-primary);
+    margin-top: -4px;
+}
+
+.event-name {
+    flex: 1;
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--text-muted);
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+.event-arrow {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.event-arrow svg {
+    width: 32px;
+    height: 32px;
+}
+
+/* Dark Mode Adjustments for Events */
+[data-theme="dark"] .event-item:hover {
+    background: var(--bg-card-secondary);
+}
+
+/* Responsive Design for Events Page */
+@media (max-width: 1024px) {
+    .event-name {
+        font-size: 32px;
+    }
+    
+    .date-day {
+        font-size: 48px;
+    }
+    
+    .date-month {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 768px) {
+    .events-title {
+        font-size: 32px;
+        margin-bottom: 32px;
+    }
+    
+    .event-item {
+        gap: 24px;
+        padding: 24px 20px;
+    }
+    
+    .event-item:hover {
+        padding-left: 30px;
+    }
+    
+    .event-date {
+        min-width: 80px;
+        padding-left: 16px;
+        border-left-width: 4px;
+    }
+    
+    .date-day {
+        font-size: 40px;
+    }
+    
+    .date-month {
+        font-size: 24px;
+    }
+    
+    .event-name {
+        font-size: 24px;
+    }
+    
+    .event-arrow svg {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .events-title {
+        font-size: 28px;
+    }
+    
+    .event-item {
+        flex-wrap: wrap;
+        gap: 16px;
+        padding: 20px 16px;
+    }
+    
+    .event-date {
+        min-width: 70px;
+        padding-left: 12px;
+    }
+    
+    .date-day {
+        font-size: 36px;
+    }
+    
+    .date-month {
+        font-size: 20px;
+    }
+    
+    .event-name {
+        font-size: 20px;
+        flex: 1 1 calc(100% - 150px);
+    }
+    
+    .event-arrow {
+        margin-left: auto;
+    }
+}

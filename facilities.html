@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIKI Sports Complex - Facilities</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="img\log2.png" alt="GIKI Logo">
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="facilities. html" class="active">Facilities</a></li>
+                <li><a href="booking.html">Booking</a></li>
+                <li><a href="events.html">Events</a></li>
+            </ul>
+            
+            <div class="nav-icons">
+                <button class="dark-mode-toggle" onclick="toggleDarkMode()" aria-label="Toggle Dark Mode">
+                    <span class="moon-icon">🌙</span>
+                </button>
+                <div class="user-avatar">
+                    <img src="img\icon.png" alt="User Avatar">
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <h1 class="page-title">Current Facilities</h1>
+        
+        <div class="facilities-grid">
+            <div class="facility-card" onclick="location.href='booking.html? facility=swimming'">
+                <img src="img\f1.png" alt="Swimming Pool">
+                <h2 class="facility-title">Swimming Pool</h2>
+            </div>
+            
+            <div class="facility-card" onclick="location.href='booking.html?facility=tennis'">
+                <img src="img\f3.png" alt="Tennis Area">
+                <h2 class="facility-title">TENNIS AREA</h2>
+            </div>
+            
+            <div class="facility-card" onclick="location.href='booking.html?facility=cricket'">
+                <img src="img\f2.png" alt="Cricket Area">
+                <h2 class="facility-title">CRICKET AREA</h2>
+            </div>
+            
+            <div class="facility-card" onclick="location.href='booking.html? facility=gym'">
+                <img src="img\f4.png" alt="Gym">
+                <h2 class="facility-title">GYM</h2>
+            </div>
+        </div>
+    </main>
+
+    <script src="dark-mode.js"></script>
+</body>
+</html>
