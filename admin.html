@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIKI Sports Complex - Admin Portal</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="./img/log2.png" alt="GIKI Logo">
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="admin.html" class="active">Admin Dashboard</a></li>
+                <li><a href="dashboard.html">User View</a></li>
+            </ul>
+            
+            <div class="nav-icons">
+                <button class="dark-mode-toggle" onclick="toggleDarkMode()" aria-label="Toggle Dark Mode">
+                    <span class="moon-icon">🌙</span>
+                </button>
+                <div class="user-avatar">
+                    <img src="./img/icon.png" alt="Admin Avatar">
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content admin-page">
+        <h1 class="page-title">Admin Portal</h1>
+
+        <!-- Admin Stats Overview -->
+        <div class="admin-stats">
+            <div class="stat-card">
+                <div class="stat-icon">📋</div>
+                <div class="stat-info">
+                    <h3>Pending Bookings</h3>
+                    <p class="stat-number" id="pendingCount">12</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🏋️</div>
+                <div class="stat-info">
+                    <h3>Equipment Items</h3>
+                    <p class="stat-number" id="equipmentCount">45</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">👨‍🏫</div>
+                <div class="stat-info">
+                    <h3>Active Trainers</h3>
+                    <p class="stat-number" id="trainerCount">8</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">✅</div>
+                <div class="stat-info">
+                    <h3>Today's Approved</h3>
+                    <p class="stat-number" id="approvedCount">23</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="admin-tabs">
+            <button class="tab-btn active" onclick="switchTab('bookings')">Booking Requests</button>
+            <button class="tab-btn" onclick="switchTab('equipment')">Equipment Management</button>
+            <button class="tab-btn" onclick="switchTab('trainers')">Trainer Management</button>
+        </div>
+
+        <!-- Booking Requests Section -->
+        <div id="bookings-section" class="admin-section active">
+            <div class="section-header">
+                <h2>Pending Booking Requests</h2>
+                <div class="filter-controls">
+                    <select id="facilityFilter" onchange="filterBookings()">
+                        <option value="all">All Facilities</option>
+                        <option value="swimming">Swimming Pool</option>
+                        <option value="cricket">Cricket Area</option>
+                        <option value="tennis">Tennis Court</option>
+                        <option value="badminton">Badminton Court</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="bookings-table-container">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Request ID</th>
+                            <th>User</th>
+                            <th>Facility</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bookingsTableBody">
+                        <!-- Populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Equipment Management Section -->
+        <div id="equipment-section" class="admin-section">
+            <div class="section-header">
+                <h2>Equipment Inventory</h2>
+                <button class="btn-primary" onclick="openAddEquipmentModal()">
+                    <span>+</span> Add Equipment
+                </button>
+            </div>
+
+            <div class="equipment-grid" id="equipmentGrid">
+                <!-- Populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Trainer Management Section -->
+        <div id="trainers-section" class="admin-section">
+            <div class="section-header">
+                <h2>Trainer Management</h2>
+                <button class="btn-primary" onclick="openAddTrainerModal()">
+                    <span>+</span> Add Trainer
+                </button>
+            </div>
+
+            <div class="trainers-table-container">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Trainer ID</th>
+                            <th>Name</th>
+                            <th>Specialization</th>
+                            <th>Contact</th>
+                            <th>Status</th>
+                            <th>Schedule</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="trainersTableBody">
+                        <!-- Populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- Add Equipment Modal -->
+    <div id="equipmentModal" class="admin-modal">
+        <div class="admin-modal-content">
+            <div class="admin-modal-header">
+                <h2 id="equipmentModalTitle">Add Equipment</h2>
+                <button class="close-modal" onclick="closeEquipmentModal()">&times;</button>
+            </div>
+            <form id="equipmentForm" class="admin-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="equipmentName">Equipment Name *</label>
+                        <input type="text" id="equipmentName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="equipmentCategory">Category *</label>
+                        <select id="equipmentCategory" required>
+                            <option value="">Select Category</option>
+                            <option value="cricket">Cricket</option>
+                            <option value="swimming">Swimming</option>
+                            <option value="tennis">Tennis</option>
+                            <option value="badminton">Badminton</option>
+                            <option value="gym">Gym</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="equipmentQuantity">Quantity *</label>
+                        <input type="number" id="equipmentQuantity" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="equipmentCondition">Condition *</label>
+                        <select id="equipmentCondition" required>
+                            <option value="excellent">Excellent</option>
+                            <option value="good">Good</option>
+                            <option value="fair">Fair</option>
+                            <option value="needs-repair">Needs Repair</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="equipmentNotes">Notes</label>
+                    <textarea id="equipmentNotes" rows="3"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" onclick="closeEquipmentModal()">Cancel</button>
+                    <button type="submit" class="btn-primary">Save Equipment</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Trainer Modal -->
+    <div id="trainerModal" class="admin-modal">
+        <div class="admin-modal-content">
+            <div class="admin-modal-header">
+                <h2 id="trainerModalTitle">Add Trainer</h2>
+                <button class="close-modal" onclick="closeTrainerModal()">&times;</button>
+            </div>
+            <form id="trainerForm" class="admin-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="trainerName">Full Name *</label>
+                        <input type="text" id="trainerName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="trainerEmail">Email *</label>
+                        <input type="email" id="trainerEmail" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="trainerPhone">Phone *</label>
+                        <input type="tel" id="trainerPhone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="trainerSpecialization">Specialization *</label>
+                        <select id="trainerSpecialization" required>
+                            <option value="">Select Specialization</option>
+                            <option value="swimming">Swimming</option>
+                            <option value="cricket">Cricket</option>
+                            <option value="tennis">Tennis</option>
+                            <option value="badminton">Badminton</option>
+                            <option value="fitness">Fitness/Gym</option>
+                            <option value="general">General Sports</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="trainerExperience">Years of Experience *</label>
+                        <input type="number" id="trainerExperience" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="trainerStatus">Status *</label>
+                        <select id="trainerStatus" required>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                            <option value="on-leave">On Leave</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="trainerBio">Bio/Qualifications</label>
+                    <textarea id="trainerBio" rows="3"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" onclick="closeTrainerModal()">Cancel</button>
+                    <button type="submit" class="btn-primary">Save Trainer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Booking Details Modal -->
+    <div id="bookingDetailsModal" class="admin-modal">
+        <div class="admin-modal-content">
+            <div class="admin-modal-header">
+                <h2>Booking Details</h2>
+                <button class="close-modal" onclick="closeBookingDetailsModal()">&times;</button>
+            </div>
+            <div class="booking-details" id="bookingDetailsContent">
+                <!-- Populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="dark-mode.js"></script>
+    <script src="admin.js"></script>
+    <script src="support.js"></script>
+</body>
+</html>
