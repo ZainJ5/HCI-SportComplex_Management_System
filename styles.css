@@ -228,6 +228,38 @@ body {
     gap: 24px;
 }
 
+/* Hamburger Menu */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 101;
+}
+
+.hamburger-menu span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.hamburger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
 .dark-mode-toggle {
     background: transparent;
     border: none;
@@ -2683,5 +2715,342 @@ body {
 
     .form-actions button {
         width: 100%;
+    }
+}
+
+/* Enhanced Mobile Responsiveness for Navbar */
+@media (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .main-content {
+        overflow-x: hidden;
+    }
+
+    .hamburger-menu {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 82px;
+        left: 0;
+        right: 0;
+        background: black;
+        flex-direction: column;
+        gap: 0;
+        padding: 20px 24px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+
+    .nav-menu.active {
+        max-height: 400px;
+        opacity: 1;
+    }
+
+    .nav-menu li {
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-menu li:last-child {
+        border-bottom: none;
+    }
+
+    .nav-menu a {
+        display: block;
+        padding: 15px 0;
+        font-size: 16px;
+    }
+
+    .nav-menu a.active::after {
+        display: none;
+    }
+
+    .nav-icons {
+        gap: 16px;
+    }
+
+    .dark-mode-toggle {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    .user-avatar {
+        width: 40px;
+        height: 40px;
+    }
+
+    /* Login Page Mobile */
+    .login-container {
+        flex-direction: column;
+        gap: 40px;
+        padding: 40px 30px;
+    }
+
+    .logo-box {
+        padding: 30px;
+    }
+
+    .logo-img {
+        width: 120px;
+    }
+
+    /* Dashboard Mobile */
+    .booking-highlight {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .booking-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .view-details-btn {
+        width: 100%;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Booking Page Mobile */
+    .facility-selector {
+        padding: 0;
+        margin: 0 0 30px 0;
+        width: 100%;
+        max-width: 100vw;
+        overflow: hidden;
+    }
+
+    .scroll-btn {
+        display: none;
+    }
+
+    .facilities-scroll-container {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 15px;
+        overflow-x: scroll !important;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        padding: 10px 16px;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: thin;
+        width: 100%;
+    }
+
+    .facilities-scroll-container::-webkit-scrollbar {
+        height: 4px;
+    }
+
+    .facilities-scroll-container::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 4px;
+    }
+
+    .facility-option {
+        min-width: 150px;
+        width: 150px;
+        height: 150px;
+        flex-shrink: 0;
+        scroll-snap-align: start;
+    }
+
+    .facility-icon img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .facility-name {
+        font-size: 14px;
+    }
+
+    .booking-calendar {
+        padding: 20px;
+    }
+
+    .calendar-header h2 {
+        font-size: 20px;
+    }
+
+    .weekday {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .date {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .time-slots {
+        grid-template-columns: 1fr;
+    }
+
+    /* Events Page Mobile */
+    .events-title {
+        font-size: 28px;
+    }
+
+    .event-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .event-date {
+        margin: 0 auto;
+    }
+
+    .event-name {
+        font-size: 18px;
+    }
+
+    /* Facilities Page Mobile */
+    .facilities-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Support Modal Mobile */
+    .support-modal {
+        padding: 10px;
+    }
+
+    .support-btn {
+        bottom: 20px;
+        right: 20px;
+        padding: 12px 20px;
+    }
+
+    .support-btn span {
+        display: none;
+    }
+
+    /* Admin Portal Mobile */
+    .admin-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-card {
+        padding: 20px;
+    }
+
+    .admin-tabs {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .tab-btn {
+        white-space: nowrap;
+        padding: 12px 20px;
+    }
+
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .admin-table {
+        font-size: 12px;
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .admin-table thead {
+        display: none;
+    }
+
+    .admin-table tr {
+        display: block;
+        margin-bottom: 15px;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 15px;
+    }
+
+    .admin-table td {
+        display: block;
+        text-align: left;
+        padding: 8px 0;
+        border: none;
+    }
+
+    .admin-table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        display: inline-block;
+        width: 120px;
+        color: var(--text-muted);
+    }
+
+    .action-buttons {
+        justify-content: flex-start;
+        margin-top: 10px;
+    }
+
+    .equipment-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-modal-content {
+        margin: 10px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Extra Small Devices */
+@media (max-width: 480px) {
+    .nav-container {
+        padding: 0 16px;
+    }
+
+    .logo img {
+        height: 40px;
+    }
+
+    .main-content {
+        padding: 16px;
+    }
+
+    .page-title {
+        font-size: 24px;
+    }
+
+    .booking-title,
+    .events-title {
+        font-size: 24px;
+    }
+
+    .stat-icon {
+        font-size: 32px;
+        width: 60px;
+        height: 60px;
+    }
+
+    .stat-number {
+        font-size: 24px;
+    }
+
+    .admin-modal-header h2 {
+        font-size: 20px;
+    }
+
+    .support-modal-header h2 {
+        font-size: 20px;
     }
 }

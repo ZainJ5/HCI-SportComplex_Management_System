@@ -1,5 +1,31 @@
 // Authentication and User Management
 
+// Toggle mobile menu
+function toggleMobileMenu() {
+    const navMenu = document.getElementById('navMenu');
+    const hamburger = document.querySelector('.hamburger-menu');
+    
+    if (navMenu && hamburger) {
+        navMenu.classList.toggle('active');
+        hamburger.classList.toggle('active');
+    }
+}
+
+// Close mobile menu when clicking on a link
+document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            const navMenu = document.getElementById('navMenu');
+            const hamburger = document.querySelector('.hamburger-menu');
+            if (navMenu && hamburger) {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
+        });
+    });
+});
+
 // Toggle user dropdown menu
 function toggleUserMenu() {
     const dropdown = document.getElementById('userDropdown');
