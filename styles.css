@@ -248,14 +248,92 @@ body {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    overflow: hidden;
+    overflow: visible;
     border: 2px solid var(--accent-green);
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.user-avatar:hover {
+    transform: scale(1.05);
 }
 
 .user-avatar img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 50%;
+}
+
+/* User Dropdown Menu */
+.user-dropdown {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    width: 200px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.user-dropdown.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.user-info-dropdown {
+    padding: 15px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.user-info-dropdown span {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 14px;
+}
+
+.user-info-dropdown small {
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+.logout-btn {
+    width: 100%;
+    padding: 12px 15px;
+    background: none;
+    border: none;
+    color: #dc2626;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+    border-radius: 0 0 12px 12px;
+}
+
+.logout-btn:hover {
+    background: #fee2e2;
+}
+
+[data-theme="dark"] .logout-btn:hover {
+    background: #7f1d1d;
+}
+
+.logout-btn svg {
+    flex-shrink: 0;
 }
 
 /* Main Content */
